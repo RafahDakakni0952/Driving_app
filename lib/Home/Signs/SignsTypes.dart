@@ -1,5 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled6/Home/Signs/SignCategory.dart';
+
+import '../../translations/locale_keys.g.dart';
 
 class SignsTypes extends StatelessWidget {
   const SignsTypes({Key? key}) : super(key: key);
@@ -9,7 +12,7 @@ class SignsTypes extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('الإشارات'),
+        title: Text(LocaleKeys.Signs.tr()),
         backgroundColor: Colors.purple,
       ),
       body: Padding(
@@ -18,7 +21,7 @@ class SignsTypes extends StatelessWidget {
           children: [
             InkWell(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>SignCategory(title: 'الإشارات التنظيمية',)));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>SignCategory(title: LocaleKeys.RegulatorySignals.tr(),category: 1,)));
               },
               child: Column(
                 children: [
@@ -43,10 +46,10 @@ class SignsTypes extends StatelessWidget {
                         borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(15),
                             bottomRight: Radius.circular(15))),
-                    child: const Center(
+                    child: Center(
                       child: Text(
-                        'الإشارات التنظيمية',
-                        style: TextStyle(
+                        LocaleKeys.RegulatorySignals.tr(),
+                        style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
@@ -61,7 +64,9 @@ class SignsTypes extends StatelessWidget {
               height: 15,
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>SignCategory(title: LocaleKeys.WarningSigns.tr(),category:2,)));
+              },
               child: Column(
                 children: [
                   Container(
@@ -85,10 +90,10 @@ class SignsTypes extends StatelessWidget {
                         borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(15),
                             bottomRight: Radius.circular(15))),
-                    child: const Center(
+                    child: Center(
                       child: Text(
-                        'الإشارات التحذيرية',
-                        style: TextStyle(
+                        LocaleKeys.WarningSigns.tr(),
+                        style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
@@ -103,7 +108,9 @@ class SignsTypes extends StatelessWidget {
               height: 15,
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>SignCategory(title: LocaleKeys.TemporarySignals.tr(),category: 3,)));
+              },
               child: Column(
                 children: [
                   Container(
@@ -127,10 +134,10 @@ class SignsTypes extends StatelessWidget {
                         borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(15),
                             bottomRight: Radius.circular(15))),
-                    child: const Center(
+                    child: Center(
                       child: Text(
-                        'الإشارات المؤقتة',
-                        style: TextStyle(
+                        LocaleKeys.TemporarySignals.tr(),
+                        style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
@@ -145,7 +152,9 @@ class SignsTypes extends StatelessWidget {
               height: 15,
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>SignCategory(title: LocaleKeys.GeneralSignals.tr(),category: 4,)));
+              },
               child: Column(
                 children: [
                   Container(
@@ -173,10 +182,10 @@ class SignsTypes extends StatelessWidget {
                         bottomRight: Radius.circular(15),
                       ),
                     ),
-                    child: const Center(
+                    child: Center(
                       child: Text(
-                        'الإشارات العامة',
-                        style: TextStyle(
+                        LocaleKeys.GeneralSignals.tr(),
+                        style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 20,

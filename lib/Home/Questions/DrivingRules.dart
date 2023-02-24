@@ -1,6 +1,8 @@
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:untitled6/translations/locale_keys.g.dart';
 
 class DrivingRules extends StatelessWidget {
   const DrivingRules({Key? key}) : super(key: key);
@@ -10,7 +12,7 @@ class DrivingRules extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('القواعد الأساسية للقيادة'),
+        title: Text(LocaleKeys.DrivingMainRules.tr(),),
         backgroundColor: Colors.purple,
       ),
       body: FutureBuilder<List<String>?>(
@@ -53,48 +55,45 @@ class DrivingRules extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: ListView.separated(
-                    itemBuilder: (context,index)=>Directionality(
-                      textDirection: TextDirection.rtl,
-                      child: Container(
-                        padding: const EdgeInsets.all(15),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Container(
-                              width: 40,
-                              height: 40,
-                              padding: const EdgeInsets.all(10),
-                              decoration: const BoxDecoration(
-                                  color: Colors.purple,
-                                  shape: BoxShape.circle
-                              ),
-                              child: Center(
-                                child: Text(
-                                  '${index+1}',
-                                  overflow: TextOverflow.visible,
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
+                    itemBuilder: (context,index)=>Container(
+                      padding: const EdgeInsets.all(15),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: 40,
+                            height: 40,
+                            padding: const EdgeInsets.all(10),
+                            decoration: const BoxDecoration(
+                                color: Colors.purple,
+                                shape: BoxShape.circle
                             ),
-                            const SizedBox(width: 8,),
-                            Expanded(
+                            child: Center(
                               child: Text(
-                                items[index],
-                                overflow: TextOverflow.ellipsis,
-                                textAlign: TextAlign.start,
-                                maxLines: 3,
+                                '${index+1}',
+                                overflow: TextOverflow.visible,
+                                textAlign: TextAlign.center,
                                 style: const TextStyle(
-                                  fontSize: 16,
+                                  fontSize: 14,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                          const SizedBox(width: 8,),
+                          Expanded(
+                            child: Text(
+                              items[index],
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.start,
+                              maxLines: 3,
+                              style: const TextStyle(
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     separatorBuilder: (context,index)=>const SizedBox(height: 10,),
@@ -142,23 +141,15 @@ class DrivingRules extends StatelessWidget {
 }
 
 const List<String> rules = [
-  ' يجب التأكد من وضع العجلات الأمامية قبل التحركيجب التأكد من وضع العجلات الأمامية قبل التحركيجب التأكد من وضع العجلات الأمامية قبل التحركيجب التأكد من وضع العجلات الأمامية قبل التحرك',
   'يجب التأكد من وضع العجلات الأمامية قبل التحرك',
-  'يجب التأكد من وضع العجلات الأمامية قبل التحرك',
-  'يجب التأكد من وضع العجلات الأمامية قبل التحرك',
-  'يجب التأكد من وضع العجلات الأمامية قبل التحرك',
-  'يجب التأكد من وضع العجلات الأمامية قبل التحرك',
-  'يجب التأكد من وضع العجلات الأمامية قبل التحرك',
-  'يجب التأكد من وضع العجلات الأمامية قبل التحرك',
-  'يجب التأكد من وضع العجلات الأمامية قبل التحرك',
-  'يجب التأكد من وضع العجلات الأمامية قبل التحرك',
-  'يجب التأكد من وضع العجلات الأمامية قبل التحرك',
-  'يجب التأكد من وضع العجلات الأمامية قبل التحرك',
-  'يجب التأكد من وضع العجلات الأمامية قبل التحرك',
-  'يجب التأكد من وضع العجلات الأمامية قبل التحرك',
-  'يجب التأكد من وضع العجلات الأمامية قبل التحرك',
-  'يجب التأكد من وضع العجلات الأمامية قبل التحرك',
-  'يجب التأكد من وضع العجلات الأمامية قبل التحرك',
-  'يجب التأكد من وضع العجلات الأمامية قبل التحرك',
+  'يجب تبديل الاطارات كل 7500 كم',
+  'يجب التأكد من إغلاق أبواب المركبة قبل التحرك',
+  'يجب التأكد من ضبط الأنوار الأمامية',
+  'يجب ضبط المرايا قبل التحرك',
+  'يجب اختبار الفرامل قبل التحرك لرحلة على الطريق السريع',
+  'يجب عدم ركوب الأطفال دون سن السابعة بالمقاعد الأميمة للسيارات',
+  'يجب ارتداء حزام الأمان حتى على السرعات البطيئة',
+
+
 
 ];

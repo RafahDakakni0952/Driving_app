@@ -1,11 +1,13 @@
 
 import 'dart:async';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled6/Home/HomeScreen.dart';
 import 'package:untitled6/constants.dart';
 import 'package:untitled6/main.dart';
+import 'package:untitled6/translations/locale_keys.g.dart';
 
 class EmailVerificationScreen extends StatefulWidget {
   const EmailVerificationScreen({super.key});
@@ -117,9 +119,9 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                         borderRadius: BorderRadius.circular(16),
                         color: Colors.pink,
                     ),
-                    child: const Text(
-                      'Continue',
-                      style: TextStyle(
+                    child: Text(
+                      LocaleKeys.Next.tr(),
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 18,
                         fontWeight: FontWeight.w700,
@@ -142,7 +144,6 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
     try{
       final user = FirebaseAuth.instance.currentUser!;
       await user.sendEmailVerification();
-      print('sent');
     }catch (e){
       showToast(context, 'Error, please try again');
     }

@@ -1,5 +1,6 @@
 
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled6/Authentication/EmailVerification/EmailVerificationScreen.dart';
@@ -9,6 +10,7 @@ import 'package:untitled6/Authentication/SignUp/SignUpScreen.dart';
 import 'package:untitled6/Home/HomeScreen.dart';
 import 'package:untitled6/Widgets/Form_Error.dart';
 import 'package:untitled6/constants.dart';
+import 'package:untitled6/translations/locale_keys.g.dart';
 
 import '../../main.dart';
 
@@ -123,11 +125,11 @@ class _SignInScreenState extends State<SignInScreen> with SingleTickerProviderSt
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        const FadeAnimation(
+                        FadeAnimation(
                             1.5,
                             Text(
-                              "Login",
-                              style: TextStyle(
+                              LocaleKeys.SignIn.tr(),
+                              style: const TextStyle(
                                   color: Color.fromRGBO(49, 39, 79, 1),
                                   fontWeight: FontWeight.bold,
                                   fontSize: 30),
@@ -242,9 +244,9 @@ class _SignInScreenState extends State<SignInScreen> with SingleTickerProviderSt
                               onPressed: () {
                                 Navigator.pushNamed(context, ForgetPasswordScreen.routeName);
                               },
-                              child: const Text(
-                                "Forgot Password?",
-                                style: TextStyle(
+                              child: Text(
+                                LocaleKeys.ForgetPassword.tr(),
+                                style: const TextStyle(
                                     decoration: TextDecoration.underline,
                                     color: Color.fromRGBO(196, 135, 198, 1),
                                 ),
@@ -270,10 +272,10 @@ class _SignInScreenState extends State<SignInScreen> with SingleTickerProviderSt
                                   borderRadius: BorderRadius.circular(50),
                                   color: const Color.fromRGBO(49, 39, 79, 1),
                                 ),
-                                child: const Center(
+                                child: Center(
                                   child: Text(
-                                    "Login",
-                                    style: TextStyle(color: Colors.white),
+                                    LocaleKeys.SignIn.tr(),
+                                    style: const TextStyle(color: Colors.white),
                                   ),
                                 ),
                               ),
@@ -289,11 +291,8 @@ class _SignInScreenState extends State<SignInScreen> with SingleTickerProviderSt
                               onPressed: () {
                                 Navigator.pushNamed(context, SignUpScreen.routeName);
                               },
-                              child: const Text(
-                                "Create Account",
-                                style: TextStyle(
-
-                                ),
+                              child: Text(
+                                LocaleKeys.CreateAccount.tr(),
                               ),
                             ),
                           ),
@@ -308,11 +307,8 @@ class _SignInScreenState extends State<SignInScreen> with SingleTickerProviderSt
                               onPressed: () {
                                 Navigator.pushNamed(context, HomeScreen.routeName);
                               },
-                              child: const Text(
-                                "Continue as guest",
-                                style: TextStyle(
-
-                                ),
+                              child: Text(
+                                LocaleKeys.Guest.tr(),
                               ),
                             ),
                           ),

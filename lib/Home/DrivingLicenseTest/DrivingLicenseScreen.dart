@@ -1,9 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+<<<<<<< HEAD
+=======
+import 'package:easy_localization/easy_localization.dart';
+>>>>>>> 76185ab (Rafah)
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled6/Authentication/SignIn/SignInScreen.dart';
 import 'package:untitled6/Home/DrivingLicenseTest/LicenseTestScreen.dart';
 import 'package:untitled6/firebaseCRUD.dart';
+<<<<<<< HEAD
+=======
+import 'package:untitled6/translations/locale_keys.g.dart';
+>>>>>>> 76185ab (Rafah)
 
 class DrivingLicenseScreen extends StatefulWidget {
   const DrivingLicenseScreen({Key? key}) : super(key: key);
@@ -25,7 +33,11 @@ class _DrivingLicenseScreenState extends State<DrivingLicenseScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+<<<<<<< HEAD
         title: const Text('Driving License'),
+=======
+        title: Text(LocaleKeys.DrivingLicenseTest.tr(),),
+>>>>>>> 76185ab (Rafah)
         centerTitle: true,
       ),
       body: FutureBuilder<Widget>(
@@ -153,12 +165,19 @@ class _DrivingLicenseScreenState extends State<DrivingLicenseScreen> {
                   color: Colors.pink.withOpacity(0.3),
                   borderRadius: BorderRadius.circular(15),
                 ),
+<<<<<<< HEAD
                 child: const Text(
                   'You can perform reservation for the test now,'
                   '\n make sure of your information well before proceeding,'
                   '\n Prepare yourself for the examination, it will be available after 24 hours',
                   textAlign: TextAlign.center,
                   style: TextStyle(
+=======
+                child: Text(
+                  LocaleKeys.PerformReservation.tr(),
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+>>>>>>> 76185ab (Rafah)
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
@@ -188,10 +207,17 @@ class _DrivingLicenseScreenState extends State<DrivingLicenseScreen> {
                       ),
                     ],
                   ),
+<<<<<<< HEAD
                   child: const Center(
                     child: Text(
                       'Reservation',
                       style: TextStyle(
+=======
+                  child: Center(
+                    child: Text(
+                      LocaleKeys.Next.tr(),
+                      style: const TextStyle(
+>>>>>>> 76185ab (Rafah)
                           fontWeight: FontWeight.bold, color: Colors.white),
                     ),
                   ),
@@ -239,12 +265,19 @@ class _DrivingLicenseScreenState extends State<DrivingLicenseScreen> {
                 color: Colors.pink.withOpacity(0.3),
                 borderRadius: BorderRadius.circular(15),
               ),
+<<<<<<< HEAD
               child: const Text(
                 'Welcome to Driving app,'
                 '\n Please login first to reservation for test',
                 textAlign: TextAlign.center,
                 style:
                     TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+=======
+              child: Text(
+                LocaleKeys.LoginFirst.tr(),
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+>>>>>>> 76185ab (Rafah)
               ),
             ),
             const SizedBox(
@@ -269,10 +302,17 @@ class _DrivingLicenseScreenState extends State<DrivingLicenseScreen> {
                     ),
                   ],
                 ),
+<<<<<<< HEAD
                 child: const Center(
                   child: Text(
                     'Login',
                     style: TextStyle(
+=======
+                child: Center(
+                  child: Text(
+                    LocaleKeys.SignIn.tr(),
+                    style: const TextStyle(
+>>>>>>> 76185ab (Rafah)
                         fontWeight: FontWeight.bold, color: Colors.white),
                   ),
                 ),
@@ -327,12 +367,19 @@ class CanEnrollWidget extends StatelessWidget {
               color: Colors.pink.withOpacity(0.3),
               borderRadius: BorderRadius.circular(15),
             ),
+<<<<<<< HEAD
             child: const Text(
               'You can perform the test now,'
               '\n make sure of your information well before proceeding,'
               '\n upon confirmation you will not be able to undo',
               textAlign: TextAlign.center,
               style: TextStyle(
+=======
+            child: Text(
+              LocaleKeys.PerformTest.tr(),
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+>>>>>>> 76185ab (Rafah)
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
@@ -360,11 +407,20 @@ class CanEnrollWidget extends StatelessWidget {
                   ),
                 ],
               ),
+<<<<<<< HEAD
               child: const Center(
                 child: Text(
                   'Start',
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.white),
+=======
+              child: Center(
+                child: Text(
+                  LocaleKeys.Start.tr(),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.white,
+                  ),
+>>>>>>> 76185ab (Rafah)
                 ),
               ),
             ),
@@ -418,8 +474,12 @@ class TimeLeftWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Text(
+<<<<<<< HEAD
                 'You can\'t perform the test now,'
                 '\n Time Left : $timeLeft Hours',
+=======
+                '${LocaleKeys.NotPerformTest.tr()} $timeLeft ${LocaleKeys.Hours.tr()}',
+>>>>>>> 76185ab (Rafah)
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                     fontWeight: FontWeight.bold, color: Colors.white),

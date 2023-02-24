@@ -1,5 +1,7 @@
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled6/translations/locale_keys.g.dart';
 
 class GeneralQuestions extends StatelessWidget {
   const GeneralQuestions({Key? key}) : super(key: key);
@@ -9,7 +11,7 @@ class GeneralQuestions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('الأسئلة العامة'),
+        title: Text(LocaleKeys.GeneralSignals.tr(),),
         backgroundColor: Colors.purple,
       ),
       body: Padding(
@@ -24,16 +26,13 @@ class GeneralQuestions extends StatelessWidget {
                     color: Colors.purple,
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: Directionality(
-                    textDirection: TextDirection.rtl,
-                    child: Text(
-                        generalQuestions[index]['question']!,
-                        overflow: TextOverflow.visible,
-                        style: const TextStyle(
-                          fontSize: 18,
-                          color: Colors.white,
-                        ),
-                    ),
+                  child: Text(
+                      generalQuestions[index]['question']!,
+                      overflow: TextOverflow.visible,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
                   ),
                 ),
                 Container(
@@ -43,14 +42,11 @@ class GeneralQuestions extends StatelessWidget {
                     color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: Directionality(
-                    textDirection: TextDirection.rtl,
-                    child: Text(
-                      generalQuestions[index]['answer']!,
-                      overflow: TextOverflow.visible,
-                      style: const TextStyle(
-                        fontSize: 18,
-                      ),
+                  child: Text(
+                    generalQuestions[index]['answer']!,
+                    overflow: TextOverflow.visible,
+                    style: const TextStyle(
+                      fontSize: 18,
                     ),
                   ),
                 ),
@@ -75,20 +71,24 @@ const generalQuestions = [
     'answer' : '3.5 طن'
   },
   {
-    'question':'يمنع منعاً باتاً قيادة المركبات على الطرقات بدون:',
-    'answer' : 'الحصول على تصريح أو رخصة قيادة.'
+    'question':'هل يجب التقيد بالسرعة المحددة في كافة الظروف؟',
+    'answer' : 'التقيد بها مع مراعاة الظروف المحيطة'
   },
   {
-    'question':'رخصة القيادة الخصوصية خاصة بمن يقود مركبة خاصة لا يتجاوز وزنها :',
-    'answer' : '3.5 طن'
+    'question':'حصولك على رخضة قيادة يعني:',
+    'answer' : 'قبولك بمسؤولية التقيد بأنظمة و قواعد المرور'
   },
   {
-    'question':'يمنع منعاً باتاً قيادة المركبات على الطرقات بدون:',
-    'answer' : 'الحصول على تصريح أو رخصة قيادة.'
+    'question':'السرعة القصوى للمركبات الصغيرة داخل المدن',
+    'answer' : '80 كم في الساعة'
   },
   {
-    'question':'رخصة القيادة الخصوصية خاصة بمن يقود مركبة خاصة لا يتجاوز وزنها :',
-    'answer' : '3.5 طن'
+    'question':'السرعة القصوى للمركبات الصغيرة خارج المدن',
+    'answer' : '120 كم في الساعة'
+  },
+  {
+    'question':'تعرف المنطقة العمياء ب',
+    'answer' : 'المنطقة التي لا يمكن رؤيتها إلا بتحريك الرأس'
   },
 
 ];

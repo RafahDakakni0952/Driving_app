@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled6/Authentication/SignUp/FadeAnimation2.dart';
 import 'package:untitled6/Home/HomeScreen.dart';
+import 'package:untitled6/translations/locale_keys.g.dart';
 
 import '../../Widgets/Form_Error.dart';
 import '../../constants.dart';
@@ -139,10 +141,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 1.6,
                                 Container(
                                   margin: const EdgeInsets.only(top: 50),
-                                  child: const Center(
+                                  child: Center(
                                     child: Text(
-                                      "Sign up",
-                                      style: TextStyle(
+                                      LocaleKeys.CreateAccount.tr(),
+                                      style: const TextStyle(
                                         color: Colors.white,
                                         fontSize: 40,
                                         fontWeight: FontWeight.bold,
@@ -288,9 +290,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                         signUp();
                                       }
                                     },
-                                    child: const Text(
-                                      "Sign up",
-                                      style: TextStyle(
+                                    child: Text(
+                                      LocaleKeys.CreateAccount.tr(),
+                                      style: const TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -301,15 +303,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                             const SizedBox(
                               height: 70,
-                            ),
-                            const FadeAnimation2(
-                              1.5,
-                              Text(
-                                "Forgot Password?",
-                                style: TextStyle(
-                                  color: Color.fromRGBO(143, 148, 251, 1),
-                                ),
-                              ),
                             ),
                           ],
                         ),

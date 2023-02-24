@@ -1,9 +1,11 @@
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled6/Widgets/Form_Error.dart';
 import 'package:untitled6/constants.dart';
 import 'package:untitled6/main.dart';
+import 'package:untitled6/translations/locale_keys.g.dart';
 
 class ForgetPasswordScreen extends StatefulWidget {
   const ForgetPasswordScreen({super.key});
@@ -64,9 +66,9 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
               const SizedBox(
                 height: 250,
               ),
-              const Text(
-                'Forget Password',
-                style: TextStyle(
+              Text(
+                LocaleKeys.ForgetPassword.tr(),
+                style: const TextStyle(
                   color: Colors.deepPurple,
                   fontSize: 32,
                   fontWeight: FontWeight.w700,
@@ -158,9 +160,9 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                       borderRadius: BorderRadius.circular(16),
                       color: Colors.pink,
                     ),
-                    child: const Text(
-                      'Continue',
-                      style: TextStyle(
+                    child: Text(
+                      LocaleKeys.Next.tr(),
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 18,
                         fontWeight: FontWeight.w700,

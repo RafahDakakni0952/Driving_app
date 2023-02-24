@@ -1,8 +1,10 @@
 
 
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled6/Home/SelfTest/TestScreen.dart';
+import 'package:untitled6/translations/locale_keys.g.dart';
 
 
 class TestsScreen extends StatelessWidget {
@@ -13,7 +15,7 @@ class TestsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('اختبر نفسك'),
+        title: Text(LocaleKeys.TestSelf.tr()),
         backgroundColor: Colors.purple,
       ),
       body: ListView.builder(
@@ -43,7 +45,7 @@ class TestsScreen extends StatelessWidget {
                 child: ListTile(
                   leading: Image.asset('assets/images/png/winning.png'),
                   title: Text(
-                    'Test number : ${index+1}',
+                    '${LocaleKeys.TestNumber.tr()} : ${index+1}',
                     textAlign: TextAlign.start,
                   ),
                   trailing: const Icon(

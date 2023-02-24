@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -6,6 +7,7 @@ import 'package:untitled6/Home/Questions/QuestionsTypes.dart';
 import 'package:untitled6/Home/SelfTest/TestsScreen.dart';
 import 'package:untitled6/Home/Signs/SignsTypes.dart';
 import 'package:untitled6/theme.dart';
+import 'package:untitled6/translations/locale_keys.g.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -39,9 +41,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
             color: Colors.black,
           ),
         ),
-        title: const Text(
-          'Settings',
-          style: TextStyle(fontWeight: FontWeight.w300, color: Colors.black),
+        title: Text(
+          LocaleKeys.Settings.tr(),
+          style: const TextStyle(fontWeight: FontWeight.w300, color: Colors.black),
         ),
         centerTitle: true,
       ),
@@ -106,11 +108,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 color: const Color(0xFFBFBFFF),
                                 borderRadius: BorderRadius.circular(50),
                             ),
-                            child: const Align(
+                            child: Align(
                               alignment: Alignment.bottomCenter,
                               child: Text(
-                                'Lights',
-                                style: TextStyle(
+                                LocaleKeys.Signs.tr(),
+                                style: const TextStyle(
                                     color: Colors.black38
                                 ),
                               ),
@@ -156,11 +158,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 color: const Color(0xFFE6D1F2),
                                 borderRadius: BorderRadius.circular(50),
                             ),
-                            child: const Align(
+                            child: Align(
                               alignment: Alignment.bottomCenter,
                               child: Text(
-                                  'Teaching',
-                                style: TextStyle(
+                                LocaleKeys.Education.tr(),
+                                style: const TextStyle(
                                   color: Colors.black38
                                 ),
                               ),
@@ -206,11 +208,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 color: const Color(0xFFFFCEE6),
                                 borderRadius: BorderRadius.circular(50),
                             ),
-                            child: const Align(
+                            child: Align(
                               alignment: Alignment.bottomCenter,
                               child: Text(
-                                'Testing',
-                                style: TextStyle(
+                                LocaleKeys.Tests.tr(),
+                                style: const TextStyle(
                                     color: Colors.black38
                                 ),
                               ),
@@ -261,7 +263,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                   ),
                   title: Text(
-                    'Dark Mode',
+                    LocaleKeys.DarkMode.tr(),
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   trailing: const ChangeThemeButton(),
@@ -270,6 +272,67 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   height: 20,
                 ),
                 ListTile(
+                  onTap: (){
+                    showDialog(
+                      context: context,
+                      builder: (context)=> SimpleDialog(
+                        backgroundColor: const Color(0xFFFFF8E1),
+                        title: Text(
+                          LocaleKeys.Language.tr(),
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'r',
+                              color: Color(0xFF795548)
+                          ),
+                        ),
+                        children: [
+                          ListTile(
+                            title: const Text(
+                              'Arabic',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 16,
+                                  color: Color(0xFF795548)
+                                //fontFamily: 'r'
+                              ),
+                            ),
+                            leading: Image.asset('assets/images/png/arabic2.png'),
+                            onTap: (){
+                              Navigator.pop(context,'Arabic');
+                            },
+                          ),
+                          ListTile(
+                            title: const Text(
+                              'English',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 16,
+                                  color: Color(0xFF795548)
+                                //fontFamily: 'r'
+                              ),
+                            ),
+                            leading: Image.asset('assets/images/png/english.png'),
+                            onTap: (){
+                              Navigator.pop(context,'English');
+                            },
+                          ),
+                        ],
+                      ),
+                    ).then((value){
+                      if(value != null){
+                        switch(value){
+                          case 'Arabic':
+                            context.setLocale(const Locale('ar'));
+                            break;
+                          case 'English':
+                            context.setLocale(const Locale('en'));
+                            break;
+                        }
+                      }
+                    });
+                  },
                   leading: Container(
                     height: 40,
                     width: 40,
@@ -283,7 +346,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                   ),
                   title: Text(
-                    'Language',
+                    LocaleKeys.Language.tr(),
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   trailing: Container(
@@ -344,10 +407,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       borderRadius: BorderRadius.circular(25),
                       color: Colors.pink,
                     ),
-                    child: const Center(
+                    child: Center(
                       child: Text(
-                        'Sign out',
-                        style: TextStyle(
+                        LocaleKeys.SignOut.tr(),
+                        style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w600,
                             fontSize: 14,

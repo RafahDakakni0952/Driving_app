@@ -1,12 +1,11 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:untitled6/Authentication/Settings/SettingsScreen.dart';
 import 'package:untitled6/Home/DrivingLicenseTest/DrivingLicenseScreen.dart';
 import 'package:untitled6/Home/Questions/QuestionsTypes.dart';
 import 'package:untitled6/Home/SelfTest/TestsScreen.dart';
 import 'package:untitled6/Home/Signs/SignsTypes.dart';
-import 'package:untitled6/theme.dart';
+import 'package:untitled6/translations/locale_keys.g.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -72,19 +71,21 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
+                                children: [
                                   Text(
-                                    'الإشارات',
-                                    style: TextStyle(
+                                    LocaleKeys.Signs.tr(),
+                                    style: const TextStyle(
                                       fontSize: 20,
                                       color: Colors.purple,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                   Text(
-                                    'جميع الإشارات و العلامات المرورية',
-                                    style: TextStyle(
-                                        fontSize: 15, color: Colors.purple),
+                                    LocaleKeys.AllSigns.tr(),
+                                    textAlign: TextAlign.center,
+                                    style: const TextStyle(
+                                        fontSize: 15, color: Colors.purple,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -128,18 +129,19 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
+                                children: [
                                   Text(
-                                    'تعليم',
-                                    style: TextStyle(
+                                    LocaleKeys.Education.tr(),
+                                    style: const TextStyle(
                                       fontSize: 20,
                                       color: Colors.purple,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                   Text(
-                                    'معلومات و شروحات شاملة للمرور و المخالفات و القوانين',
-                                    style: TextStyle(
+                                    LocaleKeys.Informations.tr(),
+                                    textAlign: TextAlign.center,
+                                    style: const TextStyle(
                                         fontSize: 15,
                                         color: Colors.purple,
                                         overflow: TextOverflow.visible),
@@ -185,18 +187,19 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
+                                children: [
                                   Text(
-                                    'أختبر نفسك',
-                                    style: TextStyle(
+                                    LocaleKeys.TestSelf.tr(),
+                                    style: const TextStyle(
                                       fontSize: 20,
                                       color: Colors.purple,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                   Text(
-                                    'اختبارات شاملة لكل القوانين و الإشارات',
-                                    style: TextStyle(
+                                    LocaleKeys.TestsRulesSigns.tr(),
+                                    textAlign: TextAlign.center,
+                                    style: const TextStyle(
                                       fontSize: 15,
                                       color: Colors.purple,
                                       overflow: TextOverflow.visible,
@@ -235,8 +238,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      DrivingLicenseScreen()));
-                          //TODO
+                                      const DrivingLicenseScreen()));
                         },
                         child: Stack(
                           clipBehavior: Clip.none,
@@ -250,18 +252,19 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
+                                children: [
                                   Text(
-                                    'اختبار رخضة القيادة',
-                                    style: TextStyle(
+                                    LocaleKeys.DrivingLicenseTest.tr(),
+                                    style: const TextStyle(
                                       fontSize: 20,
                                       color: Colors.purple,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                   Text(
-                                    'انجاز اختبار رخصة القيادة',
-                                    style: TextStyle(
+                                    LocaleKeys.DrivingTestTheoretical.tr(),
+                                    textAlign: TextAlign.center,
+                                    style: const TextStyle(
                                       fontSize: 15,
                                       color: Colors.purple,
                                       overflow: TextOverflow.visible,

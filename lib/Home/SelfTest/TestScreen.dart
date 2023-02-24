@@ -1,6 +1,8 @@
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled6/Home/SelfTest/TestResult.dart';
+import 'package:untitled6/translations/locale_keys.g.dart';
 
 class TestScreen extends StatefulWidget {
   const TestScreen({Key? key,required this.numberOfTest}) : super(key: key);
@@ -20,7 +22,7 @@ class _TestScreenState extends State<TestScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('الاختبار'),
+        title: Text(LocaleKeys.Tests.tr()),
         backgroundColor: Colors.purple,
       ),
       body: Theme(
@@ -58,9 +60,9 @@ class _TestScreenState extends State<TestScreen> {
           controlsBuilder: (BuildContext context,ControlsDetails details){
             return ElevatedButton(
                 onPressed: details.onStepContinue,
-                child: const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text('Continue'),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(LocaleKeys.Next.tr()),
                 )
             );
           },

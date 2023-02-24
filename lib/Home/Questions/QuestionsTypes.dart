@@ -1,9 +1,13 @@
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled6/Home/Questions/DrivingRules.dart';
 import 'package:untitled6/Home/Questions/GeneralQuestions.dart';
+import 'package:untitled6/Home/Questions/InstructionForTesting.dart';
 import 'package:untitled6/Home/Questions/PointsTable.dart';
+import 'package:untitled6/Home/Questions/StepsToStop.dart';
 import 'package:untitled6/Home/Questions/TrafficViolations.dart';
+import 'package:untitled6/translations/locale_keys.g.dart';
 
 class QuestionsTypes extends StatelessWidget {
   const QuestionsTypes({Key? key}) : super(key: key);
@@ -13,7 +17,7 @@ class QuestionsTypes extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Education'),
+        title: Text(LocaleKeys.Education.tr(),),
         backgroundColor: Colors.purple,
       ),
       body: ListView.builder(
@@ -33,6 +37,15 @@ class QuestionsTypes extends StatelessWidget {
                 case 3:
                   Navigator.pushNamed(context, DrivingRules.routeName);
                 break;
+                case 4:
+                  Navigator.pushNamed(context, DrivingRules.routeName);
+                  break;
+                case 5:
+                  Navigator.pushNamed(context, InstructionForTesting.routeName);
+                  break;
+                case 6:
+                  Navigator.pushNamed(context, StepsToStop.routeName);
+                  break;
               }
             },
             child: Container(

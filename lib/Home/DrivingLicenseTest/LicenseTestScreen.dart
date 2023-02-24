@@ -1,9 +1,11 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled6/Home/SelfTest/TestResult.dart';
 import 'package:untitled6/main.dart';
+import 'package:untitled6/translations/locale_keys.g.dart';
 
 class LicenseTestScreen extends StatefulWidget {
   const LicenseTestScreen({Key? key}) : super(key: key);
@@ -25,8 +27,8 @@ class _LicenseTestScreenState extends State<LicenseTestScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'License Test'
+        title: Text(
+          LocaleKeys.DrivingLicenseTest.tr(),
         ),
         backgroundColor: Colors.purple,
       ),
@@ -135,10 +137,10 @@ class _LicenseTestScreenState extends State<LicenseTestScreen> {
                     borderRadius: BorderRadius.circular(25),
                     color: Colors.purple,
                   ),
-                  child: const Center(
+                  child: Center(
                     child: Text(
-                      'Move to next',
-                      style: TextStyle(
+                        LocaleKeys.Next.tr(),
+                      style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold
                       ),

@@ -1,4 +1,5 @@
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -7,9 +8,12 @@ import 'package:untitled6/Authentication/SignIn/SignInScreen.dart';
 import 'package:untitled6/routes.dart';
 import 'package:untitled6/theme.dart';
 
-Future main() async {
+import 'translations/codegen_loader.g.dart';
+
+Future<void> main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
   await Firebase.initializeApp(
     name: 'driving-app',
     options: const FirebaseOptions(
@@ -26,8 +30,24 @@ Future main() async {
   //var idNum = await Hive.openBox('id');
   //var box = await Hive.openBox('Users');
 
-  runApp(const MyApp());
+  runApp(
+    EasyLocalization(
+        supportedLocales: const [Locale('en'), Locale('ar')],
+        path: 'assets/translations',
+        fallbackLocale: const Locale('ar'),
+        saveLocale: true,
+        assetLoader: const CodegenLoader(),
+      child: const MyApp()
+  ),
+  );
 }
+
+/*
+flutter pub run easy_localization:generate -S "assets/translations" -O "lib/translations"
+
+ flutter pub run easy_localization:generate -S "assets/translations" -O "lib/translations" -o "locale_keys.g.dart" -f keys
+
+ */
 
 
 final navigatorKey = GlobalKey<NavigatorState>();
@@ -58,6 +78,9 @@ class MyApp extends StatelessWidget {
             scrollBehavior: AppScrollBehavior(),
             routes: routes,
             initialRoute: SignInScreen.routeName,
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
           );
         }
       ),
